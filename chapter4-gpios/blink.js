@@ -20,15 +20,13 @@ interval = setInterval( function () {
   });
 }, 2000);
 
-// listen to the event triggered by pressing CTRL+C
-process.on( 'SIGINT' function() {
-  clearInterval( interval);
+// listen to the SIGINT event triggered by pressing CTRL+C
+process.on( 'SIGINT', function() {
+  clearInterval( interval );
   led.writeSync(0);
   
-
   // cleanly close the GPIO pin before exiting
   led.unexport();
   console.log( "Bye-bye" );
   process.exit();
 });
-
