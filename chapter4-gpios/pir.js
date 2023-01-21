@@ -1,18 +1,37 @@
-var Gpio = require('onoff').Gpio,
-  sensor = new Gpio(17, 'in', 'both');    //#A
+// this programme requires onoff 
+// install it by cd'ing to the right directory and running: npm install onoff --save
 
-sensor.watch(function (err, value) { //#B
-  if (err) exit(err);
-  console.log(value ? 'there is someone!' : 'not anymore!');
+console.log( "pir programme running. To stop press CTRL C.  searching for the presence of someone/something! ...");
+
+// use onoff to intialise pin 17  in input mode
+// both - means we want to handle both rising and falling interrupt edges
+var Gpio = require( 'onoff' ).Gpio,
+    	      sensor = new Gpio( 17, 'in', 'both' );
+
+// set the sensor to watch for changes on pin 17
+// if a change is detected, the anonymous callback function will be called with the new value
+sensor.watch( function( err, value ) {
+    if( err ) {
+       exit( err );  
+    } else {
+      console.log( value ? "there is some-one there!" : "clear!" );
+   }
 });
 
-function exit(err) {
-  if (err) console.log('An error occurred: ' + err);
-  sensor.unexport();
-  console.log('Bye, bye!')
-  process.exit();
-}
-process.on('SIGINT', exit);
+function exit( err ) {
 
-// #A Initialize pin 17 in input mode, 'both' means we want to handle both rising and falling interrupt edges
-// #B Listen for state changes on pin 17, if a change is detected the anonymous callback function will be called with the new value
+   // check for an error
+   if( err ){
+      // if there is an error, report it
+      console.log( 'An error occurred: ' + err );
+   }
+
+   // exit cleanly
+   sensor.unexport();
+   console.log( 'Bye-bye!' );
+   process.exit();
+   
+}
+
+// if CTRL C is pressed, stop the programme
+process.on( 'SIGINT', exit ); 
