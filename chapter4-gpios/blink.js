@@ -1,8 +1,10 @@
-// let user know how to stop programme
-console.log( "Press CTRL C to stop programme" );
+
 
 // import the onoff library
 var onoff = require onoff;
+
+// let user know how to stop programme
+console.log( "running blink.js ... Press CTRL C to stop programme" );
 
 // initialise GPIO pin 4 to be an output pin
 var Gpio = onoff.Gpio, 
