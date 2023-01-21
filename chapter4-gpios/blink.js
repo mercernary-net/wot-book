@@ -1,7 +1,7 @@
 
 
 // import the onoff library
-var onoff = require onoff;
+var onoff = require( 'onoff' );
 
 // let user know how to stop programme
 console.log( "running blink.js ... Press CTRL C to stop programme" );
