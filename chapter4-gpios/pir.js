@@ -14,7 +14,8 @@ sensor.watch( function( err, value ) {
     if( err ) {
        exit( err );  
     } else {
-      console.log( value ? "there is some-one there!" : "clear!" );
+     var d = new Date(year, month, day, hour, minute, second, millisecond);
+      console.log( value ? d + "there is some-one there!" : d + "clear!" );
    }
 });
 
