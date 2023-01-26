@@ -15,7 +15,7 @@ sensor.watch( function( err, value ) {
        exit( err );  
     } else {
      var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
-      console.log( value ? d + "there is some-one there!" : d + "clear!" );
+      console.log( value ? d + " there is some-one there!" : d + " clear!" );
    }
 });
 
