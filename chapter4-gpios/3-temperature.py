@@ -1,5 +1,5 @@
 
-import time
+from gpiozero import time
 from w1thermsensor import W1ThermSensor, Unit
 sensor = W1ThermSensor()
 
