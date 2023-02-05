@@ -7,7 +7,7 @@ while True:
  temp_C = sensor.get_temperature(Unit.DEGREES_C)
  temp_F = sensor.get_temperature(Unit.DEGREES_F)
 
-print(temp_C, " Celsius")
-print(temp_F, " Fahrenheit")
+ print(temp_C, " Celsius")
+ print(temp_F, " Fahrenheit")
 
-time.sleep(2)
+ time.sleep(2)
