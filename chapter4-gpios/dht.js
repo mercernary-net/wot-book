@@ -5,7 +5,7 @@ var sensorLib = require( 'node-dht-sensor');
 sensorLib.initialize( 22, 12 );
 var interval = setInterval( function () {
   read();
-}, 2000 );
+}, 300000 );
 
 function read() {
   var readout = sensorLib.read();
@@ -15,6 +15,8 @@ function read() {
     console.log( "Brrr! it's too cold: turn on the heating!" );
   } else if ( 25 < temperature ) {
     console.log( "Phew! It's getting hot in here. Time to turn off the heating!" );
+  } else {
+    console.log( "mmmm! It's nice and toastie. Stay as you are!" );
   }
 }
 
