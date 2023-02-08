@@ -9,7 +9,13 @@ var interval = setInterval( function () {
 
 function read() {
   var readout = sensorLib.read();
-  console.log( 'Temperature: ' + readout.temperature.toFixed(2) + 'C, ' + 'humidity: ' + readout.humidity.toFixed(2) + '%' );
+  var temperature = readout.temperature.toFixed(2);
+  console.log( 'Temperature: ' + temperature + 'C, ' + 'humidity: ' + readout.humidity.toFixed(2) + '%' );
+  if ( 19.0 > temperature ) {
+    console.log( "Brrr! it's too cold: turn on the heating!" );
+  } else if ( 25 < temperature ) {
+    console.log( "Phew! It's getting hot in here. Time to turn off the heating!" );
+  }
 }
 
 
